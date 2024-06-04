@@ -1,0 +1,5 @@
+Used to create complex frontend.
+at the end of the day react is also converting into html, css, javascript because our browser 
+can only interpret or understand these three lang. so when ever we want to create just a basic website
+which is not that complext we shouldn't use react because it's like overkilling our resources and 
+our effort.
