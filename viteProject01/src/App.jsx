@@ -1,13 +1,21 @@
+import { useState } from "react";
 function App() {
+  let [count, setCount] = useState(1);
+  const addValue = () => {
+    count++;
+    setCount(count);
+  };
+  const decreaseValue = () => {
+    if (count > 0) count--;
+    setCount(count);
+  };
   return (
     <>
-      <h1>Hello World!!</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-        commodi hic perferendis? Laudantium, quos. Rem, consectetur quasi vel
-        qui neque deleniti quae nemo accusantium numquam sint recusandae
-        deserunt explicabo dolorem.
-      </p>
+      <h1>Chai or React</h1>
+      <h2>Counter value: {count}</h2>
+      <button onClick={addValue}>Increace Value</button>
+      <br />
+      <button onClick={decreaseValue}>Decrease Value</button>
     </>
   );
 }
