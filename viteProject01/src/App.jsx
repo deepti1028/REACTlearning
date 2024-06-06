@@ -1,21 +1,23 @@
 import { useState } from "react";
+import "./main.css";
 function App() {
-  let [count, setCount] = useState(1);
-  const addValue = () => {
-    count++;
-    setCount(count);
-  };
-  const decreaseValue = () => {
-    if (count > 0) count--;
-    setCount(count);
-  };
+  const [colour, setColour] = useState("pink");
   return (
     <>
-      <h1>Chai or React</h1>
-      <h2>Counter value: {count}</h2>
-      <button onClick={addValue}>Increace Value</button>
-      <br />
-      <button onClick={decreaseValue}>Decrease Value</button>
+      <div className="home" style={{ backgroundColor: colour }}></div>
+      <div>
+        <button
+          onClick={() => {
+            setColour("Red");
+          }}
+        >
+          Red
+        </button>
+        <button>Pink</button>
+        <button>Blue</button>
+        <button>Lavender</button>
+        <button>Gray</button>
+      </div>
     </>
   );
 }
