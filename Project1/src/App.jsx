@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import "./App.css";
 import "./index.css";
 
@@ -7,6 +7,10 @@ function App() {
   const [number, setNumber] = useState(false);
   const [character, setCharacter] = useState(false);
   const [password, setPassword] = useState("");
+  const pswrdRef = useRef(null);
+  const copyPswrdToClip = useCallback(() => {
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
   const pswrdGenerator = useCallback(() => {
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     let pswrd = "";
@@ -35,8 +39,12 @@ function App() {
             className="outline-none w-full py-1 px-3 text-black"
             placeholder="Password"
             readOnly
+            ref={pswrdRef}
           />
-          <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0">
+          <button
+            className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0"
+            onClick={copyPswrdToClip}
+          >
             COPY
           </button>
         </div>
