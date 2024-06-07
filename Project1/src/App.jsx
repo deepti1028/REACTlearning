@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./App.css";
 import "./index.css";
 
@@ -20,7 +20,59 @@ function App() {
   }, [character, number, length, setPassword]);
   return (
     <>
-      <h1 className="text-4xl text-center text-white">Password Generator</h1>
+      <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-white-500 bg-gray-500">
+        <h1 className="text-white text-center my-3">Text Generator</h1>
+
+        <div className="flex shadow rounded-lg overflow-hidden mb-4">
+          <input
+            type="text"
+            value={password}
+            className="outline-none w-full py-1 px-3 text-black"
+            placeholder="Password"
+            readOnly
+          />
+          <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0">
+            COPY
+          </button>
+        </div>
+        <div className="flex text-sm gap-x-2">
+          <div className="flex item-center gap-x-1">
+            <input
+              type="range"
+              min={6}
+              max={100}
+              value={length}
+              className="curson-pointer"
+              onChange={(e) => {
+                setLength(e.target.value);
+              }}
+            />
+            <label> Length:{length}</label>
+          </div>
+          <div className="flex items-center gap-x-1">
+            <input
+              type="checkbox"
+              defaultChecked={number}
+              id="numberedIP"
+              onChange={() => {
+                setNumber((prev) => !prev);
+              }}
+            />
+            <label>Number</label>
+          </div>
+          <div className="flex items-center gap-x-1">
+            <input
+              type="checkbox"
+              defaultChecked={character}
+              id="numberedIP"
+              onChange={() => {
+                setNumber((prev) => !prev);
+              }}
+            />
+            <label>Character</label>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
