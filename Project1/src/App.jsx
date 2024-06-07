@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "./App.css";
 import "./index.css";
 
@@ -12,12 +12,17 @@ function App() {
     let pswrd = "";
     if (number) str += "123456789";
     if (character) str += "!@#$$%^&*";
-    for (let i = 0; i < lengtj; i++) {
-      let ind = Math.floor(Math.random() * str.length() + 1);
+    for (let i = 0; i < length; i++) {
+      let ind = Math.floor(Math.random() * str.length + 1);
       pswrd += str.charAt(ind);
     }
     setPassword(pswrd);
-  }, [character, number, length, setPassword]);
+  }, [character, number, length]);
+
+  useEffect(() => {
+    pswrdGenerator();
+  }, [length, pswrdGenerator, character, number]);
+
   return (
     <>
       <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-white-500 bg-gray-500">
@@ -64,9 +69,9 @@ function App() {
             <input
               type="checkbox"
               defaultChecked={character}
-              id="numberedIP"
+              id="characterIP"
               onChange={() => {
-                setNumber((prev) => !prev);
+                setCharacter((prev) => !prev);
               }}
             />
             <label>Character</label>
