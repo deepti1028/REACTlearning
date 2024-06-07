@@ -9,6 +9,8 @@ function App() {
   const [password, setPassword] = useState("");
   const pswrdRef = useRef(null);
   const copyPswrdToClip = useCallback(() => {
+    pswrdRef.current?.select();
+    // pswrdRef.current?.setSelectionRange(0,9);
     window.navigator.clipboard.writeText(password);
   }, [password]);
   const pswrdGenerator = useCallback(() => {
