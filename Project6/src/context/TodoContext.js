@@ -7,6 +7,10 @@ export const TodoContext = createContext({
       completed: false,
     },
   ],
+  addTodo: (todo) => {},
+  updateTodo: (id, todo) => {},
+  deleteTodo: (id) => {},
+  toggleComplete: (id) => {},
 });
 
 export const useTodo = () => {
@@ -14,3 +18,4 @@ export const useTodo = () => {
 };
 
 export const TodoProvider = TodoContext.Provider;
+//useContext me functions ke kewal naam likthe hai not definitions
