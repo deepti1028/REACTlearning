@@ -1,11 +1,15 @@
-import "./App.css";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
 import UserContextProvider from "./context/UserContextProvider";
-
+import "./App.css";
 function App() {
   return (
-    <UserContextProvider>
-      <div>hello</div>
-    </UserContextProvider>
+    <>
+      <UserContextProvider>
+        <Login />
+        <Profile />
+      </UserContextProvider>
+    </>
   );
 }
 
