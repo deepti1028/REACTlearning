@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 // npm install -D tailwindcss postcss autoprefixer
 // npx tailwindcss init -p
-// /** @type {import('tailwindcss').Config} */
+
 // export default {
 //   content: [
 //     "./index.html",
@@ -21,3 +21,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 //   },
 //   plugins: [],
 // }
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
