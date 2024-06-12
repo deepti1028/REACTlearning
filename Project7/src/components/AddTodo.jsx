@@ -1,6 +1,14 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useDispacth } from "react-redux";
+import { addTodo } from "../features/todo/tosoSlice";
 function AddTodo() {
+  const [input, setInput] = useState("");
+  const dispatch = useDispacth();
+  const addTodoHandler = (e) => {
+    e.preventDefault();
+    dispatch(addTodo(input));
+    setInput("");
+  };
   return (
     <form onSubmit={add} className="flex">
       <input
